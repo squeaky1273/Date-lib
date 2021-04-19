@@ -73,7 +73,24 @@ class D {
     }
 
     when() {
-
+        const today = new D();
+        const diffYear = this.year - today.year
+        const diffMonth = this._date.getMonth() - today._date.getMonth() + diffYear * 12;
+        const diffDay = this._date - today.date
+        
+        if (monthDiff > 11) {
+            return `${diffYear} year(s) from today`;
+        } else if (diffMonth > 0) {
+            return `${diffMonth} month(s) from today`;
+        } else if (diffMonth < 0) {
+            return `${diffMonth} month(s) ago`;
+        } else if (diffMonth > 0) {
+            return `${diffDay} day(s) ago`;
+        } else if (diffMonth < 0) {
+            return `${diffDay} days from now`;
+        } else {
+            return 'today';
+        }
     }
 }
 
